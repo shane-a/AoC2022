@@ -8,9 +8,12 @@
     <ItemGroup>
         <Compile Include="Helpers\FileHelpers.fs" />
         <Compile Include="DayHelpers\Day2.fs" />
+        <Compile Include="DayHelpers\Day3.fs" />
         <Compile Include="Program.fs" />
         <Content Include="Day1Input.txt" />
         <Content Include="Day2Input.txt" />
+        <Content Include="Day3Input.txt" />
+        <Content Include="Day4Input.txt" />
     </ItemGroup>
 
 </Project>
