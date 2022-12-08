@@ -1,6 +1,5 @@
 module AoC2022.DayHelpers.Day5
 
-open System
 
 let getInitialState (input: string) =
     let initState = input.Split("\n")
@@ -22,7 +21,7 @@ let getInitialState (input: string) =
     
 let applyRowAction (row: string, state: char list[]) =
     let split = row.Split(" ")
-    let (count, source, dest) = split[1] |> int, split[3] |> int, split[5] |> int
+    let count, source, dest = split[1] |> int, split[3] |> int, split[5] |> int
     for i = count downto 1 do
         let move = state[source-1].Head
         state[dest-1] <- move :: state[dest-1]
@@ -30,7 +29,7 @@ let applyRowAction (row: string, state: char list[]) =
         
 let applyRowAction9001 (row: string, state: char list[]) =
     let split = row.Split(" ")
-    let (count, source, dest) = split[1] |> int, split[3] |> int, split[5] |> int
+    let count, source, dest = split[1] |> int, split[3] |> int, split[5] |> int
     let move = state[source-1][..(count-1)]
     state[dest-1] <- move @ state[dest-1]
     state[source-1] <- state[source-1][count..]

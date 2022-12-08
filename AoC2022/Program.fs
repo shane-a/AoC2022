@@ -1,6 +1,7 @@
 ﻿module Main
 
 open System
+open System.IO
 
 let d1p1 () = AoC2022.Helpers.FileHelpers.readFileGroupByDoubleNewLineToInts("../../../Day1Input.txt")
            |> Seq.map(fun g -> g |> Seq.sum)
@@ -71,6 +72,18 @@ let d5p2 () =
     init |> Seq.map(fun s -> s.Head)
          |> Array.ofSeq
          |> String
+         
+let d6p1 () = File.ReadAllText("../../../Day6Input.txt")
+            |> Seq.windowed 4
+            |> Seq.findIndex (fun elem -> (elem |> Seq.distinct |> Seq.length) = 4)
+            |> (fun i -> i + 4)
+            |> string
+
+let d6p2 () = File.ReadAllText("../../../Day6Input.txt")
+            |> Seq.windowed 14
+            |> Seq.findIndex (fun elem -> (elem |> Seq.distinct |> Seq.length) = 14)
+            |> (fun i -> i + 14)
+            |> string
                 
 
 [<EntryPoint>]
@@ -85,6 +98,7 @@ let main _ =
                     | 3 -> (d3p1() |> string, d3p2() |> string)
                     | 4 -> (d4p1() |> string, d4p2() |> string)
                     | 5 -> (d5p1(), d5p2())
+                    | 6 -> (d6p1(), d6p2())
                     | _ -> raise (InvalidOperationException($"Day %d{input} has no functions"))
     
     printfn $"Day %d{input}\nPart 1: %s{p1}\nPart 2: %s{p2}"
