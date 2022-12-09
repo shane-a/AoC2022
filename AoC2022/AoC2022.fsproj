@@ -17,6 +17,9 @@
         <Content Include="Day4Input.txt" />
         <Content Include="Day5Input.txt" />
         <Content Include="Day6Input.txt" />
+        <Content Include="..\README.md">
+          <Link>README.md</Link>
+        </Content>
     </ItemGroup>
 
 </Project>
